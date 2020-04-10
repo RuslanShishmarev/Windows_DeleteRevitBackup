@@ -1,0 +1,20 @@
+﻿<Window x:Class="DeleteRevitBackup.Rename"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DeleteRevitBackup"
+        mc:Ignorable="d"
+        Title="Введите новое имя" Height="90" Width="300" ResizeMode="NoResize" Closing="Window_Closing" Icon="Image/logo2.png" >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="33*"/>
+            <RowDefinition Height="31*"/>
+        </Grid.RowDefinitions>
+        <TextBox x:Name="new_name" VerticalAlignment="Center" Margin="5,0,5,0" 
+                 FontFamily="Calibri" FontSize="16" Cursor="IBeam"/>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+        <Button x:Name="ok_b" Height="20" Width="100" Content="OK" Grid.Row="1" Click="ok_b_Click" Cursor="Hand"/>
+        </StackPanel>
+    </Grid>
+</Window>
