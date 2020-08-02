@@ -34,6 +34,7 @@ namespace DeleteRevitBackup
         string[] files = new string[0];
         //
         string[] selected_format = new string[0];
+
         public MainWindow()
         {
             this.WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
@@ -57,14 +58,14 @@ namespace DeleteRevitBackup
         {
             foreach (String f in files)
             {
-                string format = System.IO.Path.GetExtension(f);
+                string format = Path.GetExtension(f);
                 if (dict.Keys.Contains(s_i) && sel_f.Count() != 0) 
                 {
                     if (sel_f.Contains(format))
-                        ViewBox.Items.Add(System.IO.Path.GetFileName(f));
+                        ViewBox.Items.Add(Path.GetFileName(f));
                 }
                 if (dict.Keys.Contains(s_i) && sel_f.Count() == 0)
-                    ViewBox.Items.Add(System.IO.Path.GetFileName(f));
+                    ViewBox.Items.Add(Path.GetFileName(f));
             }
         }
         private string[] Selected_f(Dictionary<string, string[]> dict,string item)
@@ -112,7 +113,7 @@ namespace DeleteRevitBackup
             }
             foreach(string f in files)
             {
-                string name = System.IO.Path.GetFileName(f);
+                string name = Path.GetFileName(f);
                 if (del_list.Contains(name))
                     FileSystem.DeleteFile(f, UIOption.OnlyErrorDialogs, RecycleOption.SendToRecycleBin);
             }
@@ -140,7 +141,7 @@ namespace DeleteRevitBackup
             List<string> items_last = new List<string>();
             foreach (string l in ViewBox.Items)
             {
-                if (revit_formats.Contains(System.IO.Path.GetExtension(l)))
+                if (revit_formats.Contains(Path.GetExtension(l)))
                 {
                     //search the file name with 0000.revit
                     String[] words = l.Split(new char[] { '.' }, StringSplitOptions.RemoveEmptyEntries);
@@ -186,7 +187,7 @@ namespace DeleteRevitBackup
                     string file_n = ViewBox.SelectedItem.ToString();
                     char[] invalidFileChars = Path.GetInvalidFileNameChars();
                     
-                    string new_name = rn.new_file_name + System.IO.Path.GetExtension(file_n);
+                    string new_name = rn.new_file_name + Path.GetExtension(file_n);
                     int index;
                     while ((index = new_name.IndexOfAny(Path.GetInvalidFileNameChars())) != -1)
                         new_name = new_name.Remove(index, 1);
@@ -197,13 +198,23 @@ namespace DeleteRevitBackup
                             i = ViewBox.SelectedIndex;
                             ViewBox.Items.RemoveAt(i);
                             ViewBox.Items.Insert(i, new_name);
-                            System.IO.File.Move(pathway + "\\" + file_n, pathway + "\\" + new_name);
+                            File.Move(pathway + "\\" + file_n, pathway + "\\" + new_name);
                         }
                         else
                             System.Windows.MessageBox.Show("Имя занято. Придумайте новое");
                     }
                 }
             }
+        }
+        private void MoveFiles_Click(object sender, RoutedEventArgs e)
+        {
+            double windowTop = this.Top;
+            double windowLeft = this.Left;
+            double wH = this.Height;
+            double wW = this.Width;
+            
+            MoveFiles move = new MoveFiles(pathway, files, windowTop, windowLeft, wH, wW);
+            move.ShowDialog();
         }
         private void Url_way(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {

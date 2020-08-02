@@ -1,0 +1,23 @@
+﻿<Window x:Class="DeleteRevitBackup.MoveFiles"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DeleteRevitBackup"
+        mc:Ignorable="d"
+        Title="Выбирите файлы" Height="300" Width="200" MinHeight="200" MinWidth="200">
+    <Grid x:Name="format_grid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="145*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <ScrollViewer>
+        <StackPanel Grid.Row="0"  x:Name="scroll_items">
+            
+        </StackPanel>
+        </ScrollViewer>
+        <Button x:Name="ok_b" Height="20" Width="100"  Content="OK"
+                VerticalAlignment="Center" HorizontalAlignment="Center"
+                Click="ok_Click" Cursor="Hand" Grid.Row="1"/>
+    </Grid>
+</Window>

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DeleteRevitBackup"
         mc:Ignorable="d"
-        Title="Infobim | Delete Backup" Height="300" Width="400" MinHeight="250" 
+        Title="Infobim | Delete Backup" Height="350" Width="400" MinHeight="310" 
         MinWidth="300" Icon="logo2.png">
     <Grid>
         <Grid.RowDefinitions>
@@ -24,12 +24,16 @@
                   SelectionChanged="FormatsList_SelectionChanged" FontFamily="Calibri" FontSize="14"/>
         <Button x:Name="FindBackRevit" ToolTip="Выделить резервные копии файлов Revit" Content="Revit Backup" VerticalAlignment="Top" 
                 HorizontalAlignment="Right" Margin ="0,100,5,0" Grid.Row="0" 
-                Height="50" Width="90" Click="FindBackRevit_Click" 
+                Height="30" Width="90" Click="FindBackRevit_Click" 
                 FontFamily="Calibri" FontSize="14" Cursor="Hand"/>
         <Button x:Name="RenameFile" Content="Изменить имя" VerticalAlignment="Top" 
-                HorizontalAlignment="Right" Margin ="0,160,5,0" Grid.Row="0" 
-                Height="50" Width="90"
+                HorizontalAlignment="Right" Margin ="0,142,5,0" Grid.Row="0" 
+                Height="30" Width="90"
                 FontFamily="Calibri" FontSize="14" Click="RenameFile_Click" Cursor="Hand"/>
+        <Button x:Name="MoveFile" Content="Сортировка" VerticalAlignment="Top" 
+                HorizontalAlignment="Right" Margin ="0,186,5,0" Grid.Row="0" 
+                Height="30" Width="90"
+                FontFamily="Calibri" FontSize="14" Click="MoveFiles_Click" Cursor="Hand"/>
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right">
             <TextBox Text="mr.shruslan@gmail.com" IsReadOnly="True" HorizontalAlignment="Left" VerticalAlignment="Center"
                        FontFamily="Calibri" BorderBrush="White"/>
