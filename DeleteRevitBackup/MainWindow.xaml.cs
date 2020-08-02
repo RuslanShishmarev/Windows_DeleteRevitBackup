@@ -212,9 +212,12 @@ namespace DeleteRevitBackup
             double windowLeft = this.Left;
             double wH = this.Height;
             double wW = this.Width;
-            
-            MoveFiles move = new MoveFiles(pathway, files, windowTop, windowLeft, wH, wW);
-            move.ShowDialog();
+            if (files.Length != 0)
+            {
+                MoveFiles move = new MoveFiles(pathway, files, windowTop, windowLeft, wH, wW);
+                move.ShowDialog();
+            }
+            else System.Windows.MessageBox.Show("Нет файлов");
         }
         private void Url_way(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {

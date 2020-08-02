@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DeleteRevitBackup"
         mc:Ignorable="d"
-        Title="Выбирите файлы" Height="300" Width="200" MinHeight="200" MinWidth="200">
+        Title="Выберите файлы" Height="300" Width="200" MinHeight="200" MinWidth="200">
     <Grid x:Name="format_grid">
         <Grid.RowDefinitions>
             <RowDefinition Height="145*"/>
